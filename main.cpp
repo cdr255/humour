@@ -14,7 +14,7 @@ int main(int argc, char** argv)
   int optnum = 0;
   
   
-  while ((optnum = getopt(argc, argv, "d:h")) != -1)
+  while ((optnum = getopt(argc, argv, "d:hi:")) != -1)
     {
       switch (optnum) {
       case 'd':
@@ -27,6 +27,15 @@ int main(int argc, char** argv)
       case 'h':
 	print_help();
 	break;
+      case 'i':
+	{
+	  int cardnumber = atoi(optarg);
+	  if (cardnumber > 0 && cardnumber < 41)
+	    card_text_display(draw_card(cardnumber));
+	  else
+	    print_help();
+	  break;
+	}
       default: /* '?' */
 	print_help();
 	break;
@@ -39,6 +48,6 @@ int main(int argc, char** argv)
 
 void print_help()
 {
-  std::cout << "Usage: humour [-dh]\n\nAvailable Options:\n\n:";
-  std::cout << "-d <num>: Draw <num> random card(s).\n   -h: Print this help message\n";
+  std::cout << "Usage: humour [-dh]\n\nAvailable Options:\n\n";
+  std::cout << "   -d <num>: Draw <num> random card(s).\n   -h: Print this help message\n   -i <1-40>: display info for card <num>\n";
 }
