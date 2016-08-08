@@ -1,3 +1,6 @@
+#ifndef _HUMOUR_CARDS_HPP_
+#define _HUMOUR_CARDS_HPP_
+
 #include <iostream>
 #include <string>
 #include <random>
@@ -18,3 +21,4 @@ void card_text_display(Card);
 
 
 
+#endif
