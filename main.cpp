@@ -11,15 +11,18 @@ void print_help();
 int main(int argc, char** argv)
 {
   generator.seed(rd());
-  int x = distribution(generator);
   int optnum = 0;
   
   
-  while ((optnum = getopt(argc, argv, "dh")) != -1)
+  while ((optnum = getopt(argc, argv, "d:h")) != -1)
     {
       switch (optnum) {
       case 'd':
-	card_text_display(draw_card(x));
+	for(int drawnumber = atoi(optarg);drawnumber > 0;drawnumber--)
+	  {
+	    int x = distribution(generator);
+	    card_text_display(draw_card(x));
+	  }
 	break;
       case 'h':
 	print_help();
@@ -36,5 +39,6 @@ int main(int argc, char** argv)
 
 void print_help()
 {
-  std::cout << "Usage: humour [-dh]\n\nAvailable Options:\n\n   -d: Draw random card.\n   -h: Print this help message\n";
+  std::cout << "Usage: humour [-dh]\n\nAvailable Options:\n\n:";
+  std::cout << "-d <num>: Draw <num> random card(s).\n   -h: Print this help message\n";
 }
