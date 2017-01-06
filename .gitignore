@@ -95,3 +95,6 @@ flycheck_*.el
 *.exe
 *.out
 *.app
+
+humour
+.python-version
