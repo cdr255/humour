@@ -1,0 +1,8 @@
+cmake_minimum_required (VERSION 2.6)
+project (humour)
+set (humour_VERSION_MAJOR 0)
+set (humour_VERSION_MINOR 1)
+add_compile_options(-Wall -std=c++11)
+add_library(humour-cards humour-cards.cpp)
+add_executable(humour main.cpp)
+target_link_libraries(humour humour-cards)
